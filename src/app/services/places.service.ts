@@ -11,7 +11,7 @@ export class PlacesService {
     Authorization: `Bearer ${this.token}`,
     'X-Places-Api-Version': '2025-06-17',
   };
-  private readonly cacheTtl = 600 * 60 * 1000; // 600 minutes
+  private readonly cacheTtl = 10 * 60 * 1000; // 10 minutes
 
   searchPlaces(query: string, ll: string): Observable<any> {
     const cacheKey = this.getCacheKey(query, ll);

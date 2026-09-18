@@ -13,8 +13,8 @@ import { PlacesListComponent } from './components/places-list/places-list.compon
 export class App {
   private readonly placesService = inject(PlacesService);
 
-  keyword = signal('coffee');
-  location = signal('48.4666,35.0407');
+  keyword = signal('');
+  location = signal('');
 
   places = signal<any[]>([]);
   wishlist = signal<any>({});
