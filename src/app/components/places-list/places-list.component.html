@@ -1,0 +1,38 @@
+<div class="places-list">
+  @for (place of places(); track place.fsq_place_id) {
+    <div class="places-list__item">
+      <div class="wishlist-icon"
+        [class.wishlist-icon--added]="isWishlisted(place.fsq_place_id)"
+        (click)="toggleWishlist(place)"
+      ></div>
+      <img [src]="place.image">
+      <h3>{{ place.name }}</h3>
+      <p>Type: {{ place.type }}</p>
+      @if (place.distance !== undefined) {
+        <p>Distance: {{ place.distance }} m</p>
+      }
+      @if (place.address) {
+        <p>Address: {{ place.address }}</p>
+      }
+      @if (!placeDetails()[place.fsq_place_id]) {
+        <button (click)="showMore(place.fsq_place_id)">
+          Show more...
+        </button>
+      } @else {
+        <div class="place-details">
+          <p>
+            Rating:
+            {{ placeDetails()[place.fsq_place_id].rating }}
+          </p>
+
+          @for (
+            tip of placeDetails()[place.fsq_place_id].tips;
+            track tip.id
+          ) {
+            <p>{{ tip.text }}</p>
+          }
+        </div>
+      }
+    </div>
+  }
+</div>

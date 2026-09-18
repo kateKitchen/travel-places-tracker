@@ -1,0 +1,81 @@
+.places-list {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  gap: 16px;
+  padding: 4px 2px 12px;
+  box-sizing: border-box;
+
+  &__item {
+    position: relative;
+    flex: 0 0 300px;
+    box-sizing: border-box;
+    padding: 16px;
+    border: 1px solid #e0d6c9;
+    border-radius: 12px;
+    background: #fffaf3;
+    transition: transform 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(80, 60, 40, 0.1);
+    }
+
+    img {
+      width: 120px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    h3 {
+      margin: 12px 0 8px;
+      font-size: 18px;
+      color: #3f3933;
+    }
+
+    p {
+      margin: 6px 0;
+      color: #665e55;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      border: 1px solid #b8a48d;
+      border-radius: 7px;
+      background: transparent;
+      color: #66513b;
+      cursor: pointer;
+
+      &:hover {
+        background: #f0e7dc;
+      }
+    }
+  }
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  background-image: url('/icons/heart.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &.wishlist-icon--added {
+    background-image: url('/icons/heart-filled.svg');
+  }
+}
+
+.place-details {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #e0d6c9;
+}
